@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>TEXASHOLDEM</title>
+    <meta name="description" content="ポーカーのテキサスホールデムで勝率を計算するウェブサイト。">
+    <meta name="keywords" content="ポーカー, テキサスホールデム, 勝率計算, オッズ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/card.css">
+</head>
+<body>
+<div id="cpm">
+    <section class="bet-count">
+        <label for="bet">Bet:</label>
+        <input type="number" id="bet" min="1" value="1">
+    </section>
+    <section class="pot-count">
+        <label for="pot">Pot:</label>
+        <input type="number" id="pot" min="2" value="2">
+    </section>
+    <section class="player-count">
+        <label for="player">Player:</label>
+        <input type="number" id="player" min="2" max="9" value="2">
+    </section>
+</div>
+<main>
+    <section class="cards">
+        <h2>Community Cards</h2>
+        <div class="card-inputs">
+            <input type="text" id="community-card1" class="card-i" placeholder="FLOP 1">
+            <input type="text" id="community-card2" class="card-i" placeholder="FLOP 2">
+            <input type="text" id="community-card3" class="card-i" placeholder="FLOP 3">
+            <input type="text" id="community-card4" class="card-i" placeholder="TURN">
+            <input type="text" id="community-card5" class="card-i" placeholder="RIVER">
+        </div>
+    </section>
+
+    <section class="cards">
+        <h2>Player Hands</h2>
+        <div class="card-inputs">
+            <input type="text" id="player-card1" class="card-i" placeholder="CARD 1">
+            <input type="text" id="player-card2" class="card-i" placeholder="CARD 2">
+        </div>
+    </section>
+
+    <section class="results">
+        <button id="calc">Calculate Win Rate</button>
+        <h2>Win : <span id="win-rate">--</span>%</h2>
+        <h2>Odds: <span id="odds">--</span>%</h2>
+        <h2>Best: <span id="best-choice">??</span></h2>
+    </section>
+</main>
+
+<section class="hand-ranking">
+    <h2>Hand Rankings</h2>
+    <ul id="hand-ranking-list">
+        <li id="rank10">Royal Flush</li>
+        <li id="rank9">Straight Flush</li>
+        <li id="rank8">Four of a Kind</li>
+        <li id="rank7">Full House</li>
+        <li id="rank6">Flush</li>
+        <li id="rank5">Straight</li>
+        <li id="rank4">Three of a Kind</li>
+        <li id="rank3">Two Pair</li>
+        <li id="rank2">One Pair</li>
+        <li id="rank1">High Card</li>
+    </ul>
+</section>
+
+<div class="modal-overlay" id="cardSelectorModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <h2 style="color: var(--accent-color); margin-bottom: 20px;">Select Card</h2>
+
+        <div class="suit-selector">
+            <button class="suit-button" onclick="selectSuit('spade')">
+                <img src="res/spade.svg" alt="Spade">
+            </button>
+            <button class="suit-button" onclick="selectSuit('heart')">
+                <img src="res/heart.svg" alt="Heart">
+            </button>
+            <button class="suit-button" onclick="selectSuit('diamond')">
+                <img src="res/diamond.svg" alt="Diamond">
+            </button>
+            <button class="suit-button" onclick="selectSuit('club')">
+                <img src="res/club.svg" alt="Club">
+            </button>
+        </div>
+
+        <div class="rank-selector">
+            <button class="rank-button" onclick="selectRank('A')">A</button>
+            <button class="rank-button" onclick="selectRank('K')">K</button>
+            <button class="rank-button" onclick="selectRank('Q')">Q</button>
+            <button class="rank-button" onclick="selectRank('J')">J</button>
+            <button class="rank-button" onclick="selectRank('T')">T</button>
+            <button class="rank-button" onclick="selectRank('9')">9</button>
+            <button class="rank-button" onclick="selectRank('8')">8</button>
+            <button class="rank-button" onclick="selectRank('7')">7</button>
+            <button class="rank-button" onclick="selectRank('6')">6</button>
+            <button class="rank-button" onclick="selectRank('5')">5</button>
+            <button class="rank-button" onclick="selectRank('4')">4</button>
+            <button class="rank-button" onclick="selectRank('3')">3</button>
+            <button class="rank-button" onclick="selectRank('2')">2</button>
+        </div>
+
+        <div class="selected-card-preview">
+            Selected: <span id="selectedCardPreview">None</span>
+        </div>
+
+        <button class="confirm-button" onclick="confirmSelection()">Confirm</button>
+    </div>
+</div>
+
+<script src="js/rank.js"></script>
+<script src="js/calc.js"></script>
+<script src="js/card.js"></script>
+</body>
+</html>

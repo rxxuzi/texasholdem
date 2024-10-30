@@ -1,0 +1,160 @@
+.card-button {
+    background-color: var(--input-bg);
+    border: 1px solid var(--hover-color);
+    color: var(--fg);
+    padding: 10px;
+    width: 80px;
+    height: 120px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    transition: all 0.2s;
+}
+
+.card-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.card-button img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--input-bg);
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--fg);
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.suit-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.suit-button {
+    background-color: var(--bg);
+    border: 1px solid var(--hover-color);
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suit-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.suit-button.selected {
+    border-color: var(--accent-color);
+    background-color: var(--hover-color);
+}
+
+.rank-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.rank-button {
+    background-color: var(--bg);
+    border: 1px solid var(--hover-color);
+    color: var(--fg);
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rank-button:hover,
+.suit-button:hover {
+    background-color: var(--hover-color);
+}
+
+.rank-button.selected {
+    border-color: var(--accent-color);
+    background-color: var(--hover-color);
+}
+
+.selected-card-preview {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: var(--bg);
+    border-radius: 4px;
+}
+
+.confirm-button {
+    background-color: var(--accent-color);
+    color: var(--bg);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.confirm-button:hover {
+    background-color: #ccac00;
+}
+
+.card-i {
+    background-color: var(--bg);
+    border: 1px solid var(--hover-color);
+    color: var(--fg);
+    padding: 10px;
+    width: 80px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.card-i:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.card-i:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}

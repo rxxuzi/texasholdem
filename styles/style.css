@@ -1,0 +1,158 @@
+:root {
+    --bg: #121212;
+    --fg: #FFFFFF;
+    --rase: #80ff80;
+    --call: #ffff80;
+    --fold: #ff8080;
+    --accent-color: #ffd700;
+    --sub-color: #ffff8a;
+    --input-bg: #1e1e1e;
+    --hover-color: #2e2e2e;
+    --nc: #3f3f3f;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr 200px;
+    gap: 20px;
+    box-sizing: border-box;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+#cpm {
+    background-color: var(--input-bg);
+    padding: 20px;
+    border-radius: 8px;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+#cpm section {
+    margin-bottom: 20px;
+}
+
+#cpm label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
+
+#cpm input {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--bg);
+    border: 1px solid var(--hover-color);
+    color: var(--fg);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+main {
+    background-color: var(--input-bg);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.hand-ranking {
+    background-color: var(--input-bg);
+    padding: 20px;
+    border-radius: 8px;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+h2 {
+    color: var(--accent-color);
+    margin: 0 0 20px 0;
+    font-size: 1.4em;
+}
+
+.card-inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.cards {
+    margin-bottom: 30px;
+}
+
+.results {
+    padding-top: 20px;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: var(--bg);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #ccac00;
+}
+
+.hand-ranking h2 {
+    font-size: 1.2em;
+}
+
+.hand-ranking ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hand-ranking li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--hover-color);
+}
+
+.hand-ranking li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 200px 1fr 180px;
+        padding: 10px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+        height: auto;
+    }
+
+    #cpm,
+    [role="main"],
+    .hand-ranking {
+        height: auto;
+        max-height: none;
+    }
+
+    .hand-ranking {
+        margin-bottom: 20px;
+    }
+}
